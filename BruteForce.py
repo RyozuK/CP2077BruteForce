@@ -40,8 +40,8 @@ class BufferSelect(tk.OptionMenu):
 
     def __init__(self, master, *args, **kwargs):
         var = tk.StringVar()
-        var.set(CodeBox.SEGS[0])
         super().__init__(master, var, *BufferSelect.SEGS, command=self.next)
+        var.set(BufferSelect.SEGS[0])
         # print(self.__dict__)
         self['borderwidth'] = 0
         self['width'] = 1
@@ -155,7 +155,7 @@ class SequenceBox(tk.Frame):
 
     def get_path(self):
         """Returns a path for this sequence"""
-        return BreachForce.Sequence([e.get_code() for e in self.codes])
+        return BreachForce.Sequence([e.get_code() for e in self.codes if e.get_code() != "  "])
 
 
 class SequenceSelect(tk.LabelFrame):
