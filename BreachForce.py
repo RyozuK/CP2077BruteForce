@@ -58,6 +58,10 @@ class CodeMatrix:
 
 class Sequence:
     def __init__(self, values, path=[]):
+        """
+        :param values: The codes for this sequence
+        :param path: When generating a path, this is a list of (row, column) tuples that correspond to each value
+        """
         self.values = values
         self.path = path
 
@@ -84,6 +88,10 @@ class Sequence:
 
     def __str__(self):
         return self.__repr__()
+
+    def get_coords(self):
+        return self.path
+
 
 def solve(matrix, buffers, *targets):
     for path in matrix.permutations(buffers):
