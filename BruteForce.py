@@ -17,6 +17,9 @@ class CodeBox(tk.OptionMenu):
         self.bind("<KeyPress>", self.key_press)
 
     def key_press(self, event):
+        if event.char == "\n":
+            self.next(None)
+            return
         c = event.char.upper()
         for val in CodeBox.SEGS:
             if val.startswith(c):
