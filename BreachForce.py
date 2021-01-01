@@ -71,12 +71,7 @@ class Sequence:
         other_seq = " ".join(item.values)
         my_seq = " ".join(self.values)
         return other_seq in my_seq
-        # n = len(item.values)
-        # for i in range(0, len(self.values) - n):
-        #     # This causes a loop around behavior!  Find a different comparison method, maybe a .join version.
-        #     if self.values[i:i + n] == item.values:
-        #         return True
-        # return False
+
 
     def __len__(self):
         return len(self.path)
